@@ -13,3 +13,6 @@ COPY / /opt/
 COPY --from=downloader /opt/aws-custom-runtime /opt/
 
 ENV LAMBDA_TASK_ROOT "/opt"
+
+# Change user
+USER 1001

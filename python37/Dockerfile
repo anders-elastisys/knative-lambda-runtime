@@ -19,3 +19,6 @@ COPY --from=downloader /opt/aws-custom-runtime /opt/
 
 ENV PYTHONPATH "/opt/eventstore"
 ENV LAMBDA_TASK_ROOT "/opt"
+
+# Change user
+USER 1001

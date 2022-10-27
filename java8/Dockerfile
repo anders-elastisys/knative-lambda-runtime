@@ -29,3 +29,6 @@ ENTRYPOINT ["/usr/bin/java", \
         "-XX:-TieredCompilation", \
         "-jar", \
         "/var/runtime/lib/LambdaJavaRTEntry-1.0.jar"]
+
+# Change user
+USER 1001
