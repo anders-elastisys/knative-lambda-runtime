@@ -19,7 +19,11 @@ help: ## Display this help
 IMAGES = $(foreach r,$(RUNTIMES),$(r).image)
 images: $(IMAGES) ## Build the Docker images
 $(IMAGES): %.image:
-	docker build -t $(IMAGE_REPO)/knative-lambda-$* $*
+	docker build -t $(IMAGE_REPO)/knative-lambda-$*:${IMAGE_TAG} $*
+	docker push $(IMAGE_REPO)/knative-lambda-$*:${IMAGE_TAG}
+
+# images-push: $(IMAGES) ## Push the Docker images
+# $(IMAGES): %.image:
 
 CLOUDBUILD_TEST = $(foreach r,$(RUNTIMES),$(r).cloudbuild-test)
 cloudbuild-test: $(CLOUDBUILD_TEST) ## Test container image build with Google Cloud Build
